@@ -1,0 +1,26 @@
+-+*/ |                     Num     Fractional      Char        String      Bool
+__
+Num                        Num     Fractional       e             e          e
+
+Fractional              Fractional  Fractional      e             e          e  
+
+Char                        e           e           e             e          e
+
+String                      e           e           e             e          e 
+
+Bool                        e           e           e             e          e     
+
+
+
+
+<==> |                     Num     Fractional      Char        String      Bool
+__
+Num                         ok         ok           e             e          e
+
+Fractional                  ok         ok           e             e          e  
+
+Char                        e           e          ok             e          e
+
+String                      e           e           e             ok         e 
+
+Bool                        e           e           e             e          ok

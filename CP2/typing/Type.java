@@ -41,7 +41,7 @@ public enum Type {
     };
 
     public Type unifyArithmetic(Type that) {
-		return plus[this.ordinal()][that.ordinal()];
+		return arithmetic[this.ordinal()][that.ordinal()];
 	}
 
     private static Type comp[][] = {
@@ -53,7 +53,7 @@ public enum Type {
     };
 
     public Type unifyComp(Type that) {
-		return plus[this.ordinal()][that.ordinal()];
+		return comp[this.ordinal()][that.ordinal()];
 	}
 }
 

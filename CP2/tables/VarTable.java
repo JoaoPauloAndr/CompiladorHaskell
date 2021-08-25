@@ -1,7 +1,10 @@
 package tables;
 
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Formatter;
+import java.util.Enumeration;
 
+import static typing.Type.NO_TYPE;
 import typing.Type;
 
 public final class VarTable {
@@ -15,7 +18,7 @@ public final class VarTable {
 	}
 
     public boolean lookUpVar(String s) {
-        Entry var = new Entry(this.hashtable.get(s));
+        Entry var = this.hashtable.get(s);
         if (var != null){
             return true;
         }else{
@@ -25,7 +28,7 @@ public final class VarTable {
     }
 
     public int getLine(String s) {
-        Entry var = new Entry(this.hashtable.get(s));
+        Entry var = this.hashtable.get(s);
         if (var != null){
             return var.line;
         }else{
@@ -34,7 +37,7 @@ public final class VarTable {
     }
 
     public Type getType(String s) {
-        Entry var = new Entry(this.hashtable.get(s));
+        Entry var = this.hashtable.get(s);
         if (var != null){
             return var.type;
         }else{
@@ -43,8 +46,18 @@ public final class VarTable {
     }
 
     public String toString() {
-        System.out.println("Tabela de variáveis:\n" + this.hashtable.toString());
-    }
+		StringBuilder sb      = new StringBuilder();
+		Formatter f           = new Formatter(sb);
+        Enumeration<String> e = this.hashtable.keys();
+        int entry             = 0;
+		f.format("Variables table:\n");
+        while(e.hasMoreElements()){
+            String nome = e.nextElement();
+            f.format("Variavel %d -- Nome: %s, linha: %d, tipo: %s\n", entry, nome, getLine(nome), getType(nome).toString());
+        }
+		f.close();
+		return sb.toString();
+	}
 
     private final class Entry {
 		int line;
@@ -55,5 +68,9 @@ public final class VarTable {
 			this.type = type;
 		}
 	}
+
+    public int size(){
+        return this.hashtable.size();
+    }
 }
 

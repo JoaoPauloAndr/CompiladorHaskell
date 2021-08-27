@@ -391,8 +391,3 @@ public abstract class HaskellBaseLexer extends Lexer {
         return tokenQueue.poll();
     }
 }
-
-public static Future<JFrame> inspect(Tree t, List<String> ruleNames) {
-  TreeViewer viewer = new TreeViewer(ruleNames, t);
-  return viewer.open();
-}

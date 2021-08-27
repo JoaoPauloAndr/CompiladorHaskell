@@ -1525,6 +1525,18 @@ public interface HaskellParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAscSymbol(HaskellParser.AscSymbolContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link HaskellParser#num}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNum(HaskellParser.NumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link HaskellParser#fractional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFractional(HaskellParser.FractionalContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link HaskellParser#integer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

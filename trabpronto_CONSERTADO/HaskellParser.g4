@@ -1712,7 +1712,10 @@ qvarsym_no_minus
 
 varsym : varsym_no_minus | '-';
 
-varsym_no_minus : ascSymbol+;
+varsym_no_minus 
+    : Equal 
+    | ascSymbol+
+    ;
 
 // These special_ids are treated as keywords in various places,
 // but as ordinary ids elsewhere.   'special_id' collects all these
@@ -1772,6 +1775,10 @@ symbol: ascSymbol;
 ascSymbol: '!' | '#' | '$' | '%' | '&' | '*' | '+'
         | '.' | '/' | '<' | '=' | '>' | '?' | '@'
         | '\\' | '^' | '|' | '~' | ':' ;
+
+num: integer | fractional;
+
+fractional: pfloat;
 
 integer
     :
